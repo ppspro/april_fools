@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATAPATHY DESSERTS | Better Than Pahala Rasogolla</title>
+    <style>
+        /* Modern styling with lavender and magenta gradients */
+        :root {
+            --primary-color: #9d4edd;
+            --secondary-color: #c77dff;
+            --accent-color: #e0aaff;
+            --text-color: #333333;
+            --light-bg: #f5f1fe;
+            --gradient-primary: linear-gradient(135deg, #c77dff, #ff5ebc);
+            --gradient-secondary: linear-gradient(to right, #9d4edd, #ff5ebc);
+            --glass-bg: rgba(255, 255, 255, 0.25);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fcfaff;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-left: 1rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .logo-text::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .logo-container:hover .logo-text::after {
+            width: 100%;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            padding-top: 73px;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/api/placeholder/1200/800') center/cover no-repeat;
+            opacity: 0.2;
+            mix-blend-mode: overlay;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .hero h1 span {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1 span::after {
+            content: "👻";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .logo-container.ghost-active .april-fool-logo::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #e0aaff, #c77dff);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #c77dff, #9d4edd);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .btn:hover::after {
+            opacity: 1;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(157, 78, 221, 0.4);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--light-bg) 0%, rgba(255,255,255,0) 100%);
+            z-index: -1;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .store-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .store-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(157, 78, 221, 0.3);
+        }
+        
+        .store-image::after {
+            content: "SATAPATHY DESSERTS";
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            background: rgba(157, 78, 221, 0.8);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stats-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .founder-quote {
+            background-color: #f5f5f5;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .founder-quote::before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(157, 78, 221, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            margin: 0.5rem auto;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(157, 78, 221, 0.2);
+        }
+        
+        .product-card.featured {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .product-image {
+            height: 200px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card.featured .product-image {
+            height: 100%;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-image::before {
+            content: "APRIL FOOL!";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(157, 78, 221, 0.8);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-details {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .product-card.featured .product-title {
+            font-size: 1.8rem;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .product-rating {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .star {
+            color: gold;
+            margin-right: 2px;
+            animation: pulse 2s infinite;
+            animation-delay: calc(var(--star-index) * 0.2s);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Glass Card Effect */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(4px);
+            border: var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            border-radius: 15px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, var(--light-bg) 0%, rgba(255,255,255,0) 70%);
+            z-index: -1;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .testimonials-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .testimonial-info h4 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-rating {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: """;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 3rem;
+            color: rgba(157, 78, 221, 0.1);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-card::after {
+            content: "FAKE REVIEW";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            transform: rotate(45deg) translateY(-100%);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+        
+        .testimonial-card:hover::after,
+        .testimonial-card.active::after {
+            transform: rotate(45deg) translateY(-20%);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-bg) 100%);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            margin: 0;
+            color: var(--primary-color);
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .hours {
+            margin-top: 2rem;
+        }
+        
+        .hours h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+        }
+        
+        .hours-day {
+            font-weight: bold;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .footer-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .footer-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        /* Animation for April Fool Logo */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .april-fool-logo {
+            position: relative;
+            font-size: 2rem;
+            font-weight: bold;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: bounce 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        
+        .april-fool-logo::after {
+            content: "👻";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        /* April Fool Popup */
+        .april-fool-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        
+        .april-fool-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        .april-fool-popup h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .april-fool-popup p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .close-popup {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .close-popup:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.show {
+            display: block;
+        }
+        
+        /* Easter Egg Tracker */
+        .easter-egg-tracker {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            display: none;
+        }
+        
+        .easter-egg-tracker.show {
+            display: block;
+        }
+        
+        .easter-egg-tracker h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .easter-egg-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .easter-egg-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .easter-egg-list li::before {
+            content: "🔍";
+            margin-right: 0.5rem;
+        }
+        
+        .easter-egg-list li.found::before {
+            content: "✅";
+        }
+        
+        .easter-egg-score {
+            font-weight: bold;
+            margin-top: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Rainbow Effect */
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .rainbow-effect {
+            background: linear-gradient(
+                124deg, 
+                #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, 
+                #1ddde8, #2b1de8, #dd00f3, #dd00f3
+            );
+            background-size: 1800% 1800%;
+            animation: rainbow 8s ease infinite;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-card.featured {
+                grid-column: span 1;
+                grid-template-columns: 1fr;
+            }
+            
+            .product-card.featured .product-image {
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hamburger {
+                display: block;
+                z-index: 1001;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 60%;
+                height: 100vh;
+                background: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transform: translateX(100%);
+                transition: transform 0.5s ease;
+                z-index: 1000;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav.active {
+                transform: translateX(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 6px);
+            }
+            
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -6px);
+            }
+            
+            .testimonials-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo-container" id="logoContainer">
+                <div class="april-fool-logo" id="aprilFoolLogo">April Fool Hogyee!</div>
+                <div class="logo-text">SATAPATHY DESSERTS</div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Our Sweets</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Experience <span id="heroSpan">SATAPATHY DESSERTS</span> Like Never Before!</h1>
+            <p>Better than Pahala Rasogolla - A sweet revolution is coming to town
+</p>
+            <a href="#products" class="btn">Explore Our Sweets</a>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="container about-container">
+            <img src="/api/placeholder/600/400" alt="Satapathy Desserts Store" class="store-image">
+            <div class="about-content">
+                <h2>About Satapathy Desserts</h2>
+                <p>Founded in 2015, Satapathy Desserts has been revolutionizing the traditional sweet experience with our secret family recipes passed down through generations. Our mission is to create the most delicious and authentic Bengali sweets, especially our famous Rasogollas that have outshined even the legendary Pahala sweets.</p>
+                
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Sweet Varieties</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                </div>
+                
+                <div class="founder-quote">
+                    <p>Our secret isn't just in the ingredients, but in the love and passion we pour into each sweet we create. That's what makes our Rasogollas better than Pahala's!</p>
+                    <p>— Rahul Satapathy, Founder</p>
+                </div>
+                
+                <p>Visit our store to experience the magic of authentic Bengali sweets made with premium ingredients and traditional techniques that have been perfected over decades.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Signature Sweets</h2>
+            <div class="products-container">
+                <div class="product-card featured">
+                    <div class="product-image">
+                        <img src="/api/placeholder/500/300" alt="Premium Rasogolla">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Signature Satapathy Rasogolla</h3>
+                        <p class="product-description">Our flagship sweet that has made us famous across the region. Soft, spongy, and perfectly sweetened, these melt-in-your-mouth rasogollas are guaranteed to outshine the famous Pahala rasogollas.</p>
+                        <div class="product-price">₹250 per kg</div>
+                        <div class="product-rating">
+                            <span class="star" style="--star-index: 0;">★</span>
+                            <span class="star" style="--star-index: 1;">★</span>
+                            <span class="star" style="--star-index: 2;">★</span>
+                            <span class="star" style="--star-index: 3;">★</span>
+                            <span class="star" style="--star-index: 4;">★</span>
+                        </div>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/300/200" alt="Cham Cham">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Rainbow Cham Cham</h3>
+                        <p class="product-description">Colorful, soft, and soaked in flavored sugar syrup. Our Cham Cham is a festival favorite.</p>
+                        <div class="product-price">₹280 per kg</div>
+                        <div class="product-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/300/200" alt="Kaju Barfi">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Premium Kaju Barfi</h3>
+                        <p class="product-description">Made with the finest cashews and pure ghee, our Kaju Barfi is the perfect gift for any occasion.</p>
+                        <div class="product-price">₹700 per kg</div>
+                        <div class="product-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="/api/placeholder/300/200" alt="Gulab Jamun">
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-title">Royal Gulab Jamun</h3>
+                        <p class="product-description">Soft, golden-brown dumplings soaked in rose and cardamom flavored sugar syrup.</p>
+                        <div class="product-price">₹320 per kg</div>
+                        <div class="product-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <a href="#" class="btn">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-container" id="testimonialsContainer">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SP</div>
+                        <div class="testimonial-info">
+                            <h4>Sonakshi Pradhan</h4>
+                            <div class="testimonial-date">March 15, 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>I've tried sweets from all over India, but Satapathy's Rasogollas are truly in a league of their own. They are indeed better than Pahala's! The texture is perfect and the sweetness is just right.</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RM</div>
+                        <div class="testimonial-info">
+                            <h4>Ritik Mishra</h4>
+                            <div class="testimonial-date">February 28, 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>I ordered sweets for my daughter's birthday and everyone was asking where I got them from. The Rainbow Cham Cham was a hit with the kids! Will definitely order again.</p>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">SR</div>
+                        <div class="testimonial-info">
+                            <h4>Swayam LGTV🤣</h4>
+                            <div class="testimonial-date">March 20, 2025</div>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>Being from Odisha, I was skeptical about the claim of being better than Pahala Rasogolla. But I must admit, Satapathy has indeed surpassed the quality. The sweets are fresh and the taste is authentic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Visit Us Today</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div>
+                        <div class="contact-detail">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>123 Rasulgarh and Fire-Station 110001</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Call Us</h4>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-detail">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email Us</h4>
+                                <p>pawani2k20@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="hours">
+                            <h3>Opening Hours</h3>
+                            <div class="hours-grid">
+                                <div class="hours-day">Monday - Friday:</div>
+                                <div>9:00 AM - 9:00 PM</div>
+                                <div class="hours-day">Saturday:</div>
+                                <div>10:00 AM - 10:00 PM</div>
+                                <div class="hours-day">Sunday:</div>
+                                <div>10:00 AM - 8:00 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="map-container">
+                        <img src="/api/placeholder/500/250" alt="Store Map" style="width: 100%; height: auto;">
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">SATAPATHY DESSERTS</div>
+                <p>Bringing the authentic taste of Bengali sweets to your doorstep since 2015.</p>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#products">Our Sweets</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p>&copy; 2025 Satapathy Desserts. All rights reserved.</p>
+                <p class="april-fool-text">April Fool's Day Special Website</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- April Fool Popup -->
+    <div class="april-fool-popup" id="aprilFoolPopup">
+        <h2>APRIL FOOL!</h2>
+        <p>This is just a joke website! We don't really claim to be better than the legendary Pahala Rasogollas!</p>
+        <button class="close-popup" id="closePopup">Okay, Got It!</button>
+    </div>
+    
+    <div class="overlay" id="overlay"></div>
+    
+    <!-- Easter Egg Tracker -->
+    <div class="easter-egg-tracker" id="easterEggTracker">
+        <h3>Easter Egg Hunt</h3>
+        <ul class="easter-egg-list">
+            <li id="egg1">Click the Ghost Logo</li>
+            <li id="egg2">Find the Rainbow Sweet</li>
+            <li id="egg3">Reveal the Fake Reviews</li>
+            <li id="egg4">Discover the Secret Message</li>
+            <li id="egg5">Activate Prank Mode</li>
+        </ul>
+        <div class="easter-egg-score">Found: <span id="eggCount">0</span>/5</div>
+    </div>
+    
+    <script>
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile Navigation
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+        
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Close mobile nav when a link is clicked
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // April Fool Popup
+        const aprilFoolLogo = document.getElementById('aprilFoolLogo');
+        const logoContainer = document.getElementById('logoContainer');
+        const aprilFoolPopup = document.getElementById('aprilFoolPopup');
+        const overlay = document.getElementById('overlay');
+        const closePopup = document.getElementById('closePopup');
+        const heroSpan = document.getElementById('heroSpan');
+        
+        // Check if today is April 1st
+        const today = new Date();
+        const isAprilFool = today.getMonth() === 3 && today.getDate() === 1;
+        
+        // If it's April 1st or if we manually want to show the April Fool features
+        if (isAprilFool || true) {
+            setTimeout(() => {
+                aprilFoolPopup.classList.add('show');
+                overlay.classList.add('show');
+            }, 3000);
+        }
+        
+        closePopup.addEventListener('click', function() {
+            aprilFoolPopup.classList.remove('show');
+            overlay.classList.remove('show');
+            document.getElementById('easterEggTracker').classList.add('show');
+        });
+        
+        // Easter Egg 1: Ghost Logo
+        aprilFoolLogo.addEventListener('click', function() {
+            logoContainer.classList.add('ghost-active');
+            document.getElementById('egg1').classList.add('found');
+            updateEggCount();
+        });
+        
+        // Easter Egg 2: Rainbow Sweet
+        const productCards = document.querySelectorAll('.product-card');
+        productCards.forEach(card => {
+            card.addEventListener('dblclick', function() {
+                this.querySelector('.product-image').classList.add('rainbow-effect');
+                document.getElementById('egg2').classList.add('found');
+                updateEggCount();
+            });
+        });
+        
+        // Easter Egg 3: Fake Reviews
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        testimonialCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.add('active');
+                if (!document.getElementById('egg3').classList.contains('found')) {
+                    document.getElementById('egg3').classList.add('found');
+                    updateEggCount();
+                }
+            });
+        });
+        
+        // Easter Egg 4: Secret Message
+        let konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        let konamiIndex = 0;
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    document.body.classList.add('rainbow-effect');
+                    document.getElementById('egg4').classList.add('found');
+                    updateEggCount();
+                    konamiIndex = 0;
+                    alert("You found the secret Konami code! Rainbow mode activated!");
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        
+        // Easter Egg 5: Prank Mode
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (document.getElementById('name').value.toLowerCase().includes('prank') || 
+                document.getElementById('message').value.toLowerCase().includes('prank')) {
+                document.querySelectorAll('.product-title').forEach(title => {
+                    title.textContent = "Gotcha! April Fool's Sweets";
+                });
+                document.getElementById('egg5').classList.add('found');
+                updateEggCount();
+                alert("Prank mode activated! All our sweets have been renamed!");
+            } else {
+                alert("Form submitted successfully! (Not really, this is a joke website!)");
+            }
+        });
+        
+        // Update Easter Egg Count
+        function updateEggCount() {
+            const found = document.querySelectorAll('.easter-egg-list li.found').length;
+            document.getElementById('eggCount').textContent = found;
+            
+            if (found === 5) {
+                alert("Congratulations! You found all Easter eggs! You're a true April Fool's master!");
+                document.body.classList.add('rainbow-effect');
+            }
+        }
+        
+        // Scroll Animation for Testimonials
+        const testimonialsContainer = document.getElementById('testimonialsContainer');
+        const testimonialObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    testimonialsContainer.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        testimonialObserver.observe(testimonialsContainer);
+        
+        // Preload all animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any additional initialization here
+        });
+    </script>
+</body>
+</html>
